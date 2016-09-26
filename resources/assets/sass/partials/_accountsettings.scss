@@ -1,0 +1,149 @@
+// @import "../vendor/bootstrap/bootstrap.scss";
+// @import "../vendor/fontawesome/font-awesome.scss";
+body{
+	background-color: white;
+}
+$emerald: #00635D;
+$mainColor: #382110;
+$headers: #181818;
+$spans: #AAAAAA;
+$input_border: #DCD6CC;
+$input_bor_brown: #B9AD99;
+#info{
+	
+	p{
+		color: $mainColor;
+		font-weight: 700;
+		font-size: 20px;
+		font-family: 'Lato', sans-serif;
+	}
+	a{
+		color: $emerald;
+	}
+	ul{
+		margin-left: -30px;
+		li{
+			display: inline-block;
+			
+			padding: 9px 10px;
+			a{
+				text-decoration: none;
+				color: $mainColor;
+			}
+			&:hover{
+				border-bottom: 2px solid $mainColor;
+			}
+		}
+	}
+	.border-bottom{
+		margin-top: -10px;
+		border-bottom: 1px solid #D8D8D8;
+	}
+	.active-li{
+		border-bottom: 2px solid $mainColor;
+	}
+}
+#change_account{
+	.profile-picture{
+		ul{
+			margin-left: -30px;
+			li{
+				display: inline;
+				a{
+					font-size: 12px;
+					color: $emerald;
+				}
+			}
+		}
+	}
+	padding-top: 15px;	
+	.paragraph{
+		color: $headers;
+		font-size: 12px;
+		margin-top: 8px;
+		margin-bottom: 0px;
+	}
+	.input-border{
+		border: 0px;
+		border: 1px solid;		
+		border-color: $input_border;
+		border-radius: 3px;
+		width: 210px;
+		margin-top: 3px;
+		&:focus{
+			outline: none;
+			border-color: $input_bor_brown;
+			box-shadow: 0 0 5px #B9AD99;
+		}
+	}
+	.input-textarea{
+		border: 0px;
+		border: 1px solid;		
+		border-color: $input_border;
+		border-radius: 3px;
+		margin-top: 3px;
+		&:focus{
+			outline: none;
+			border-color: $input_bor_brown;
+			box-shadow: 0 0 5px #B9AD99;
+		}
+	}
+	.span-color{
+		color: $spans;
+	}
+	.radio{
+		display: inline;
+	}
+	.radio-span{
+
+	}
+	.h5{
+		font-style: italic;
+		font-size: 12px;
+		margin-top: -2px;
+	}
+	.btn{
+		background-color: #F4F1EA;
+		border: 0px; 
+		border: 1px solid #D6D0C4;
+		color: $headers;
+		margin-top: 35px;
+		margin-bottom: 35px;
+		&:hover{
+			background-color: #EDE6D6;
+		}
+	}
+}
+
+#footer{
+	padding-top: 8px;
+	background-color: #F4F1EA;
+	span{
+		color: #181818;
+		font-weight: 900;
+	}
+	span:first-child{
+		color: #666666;
+		font-size: 12px;
+	}
+	ul{
+		li{
+			display: inline-block;
+			border-right: 1px solid #666666;
+			padding-bottom: 5px;
+			padding-left: 5px;
+			padding-right: 5px;
+			a{
+				font-size: 10px;
+				color: #666666;
+			}
+			&:last-child{
+				border: 0px;
+			}
+		}
+	}
+	a{
+		color: $emerald;
+		font-size: 11px;
+	}
+}

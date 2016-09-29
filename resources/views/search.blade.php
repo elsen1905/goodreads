@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Search</title>
+	<title>Goodreads | Search results for {{$any}}</title>
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<link rel="icon" href="/images/goodreads-icon.png">
 </head>
 <body>
 <nav class="navbar navbar-default" id="navbar">
   <div class="container">
 	<div class="col-sm-9">
 			<div class="navbar-header">
-	      <a href="{{url('/homepage')}}"><img src="/images/logo.png"></a>
+	      <a href="{{url('/')}}"><img src="/images/logo.png"></a>
 	    </div>
 	      <ul class="nav navbar-nav ">
-	        <li><a href="{{url('/homepage')}}">Home</a></li>
+	        <li><a href="{{url('/')}}">Home</a></li>
 	        <li><a href="#">My Books</a></li>
 	      </ul> 
-      	<form class="navbar-form navbar-left">
+      	<form class="navbar-form navbar-left" action="{{url('/search-result')}}" method="POST" >
+      	{{csrf_field()}}
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search books">
+	          <input type="text" class="form-control" name="search" placeholder="Search books">
 	        </div>
-       		<a href="{{url('/search-result')}}" class="btn"> 
+	       {{--  <a href="{{url('/search-result')}}" class="btn"> 
 	        	<i class="fa fa-search" aria-hidden="true"></i>
-	        </a>
+	        </a> --}}
+	        <button type="submit" class="btn btn-default" style="background-color: #F4F1EA;">Search it</button>
      	</form>
 		</div>
 		<div class="col-sm-3">
@@ -36,7 +39,7 @@
 		<div class="row">
 			<div class="col-sm-8">
 				<h4><strong>Search</strong></h4>
-				<form action="" method="GET" name="searchForm" class="navbar-form">
+				<form action="{{url('/search-result')}}" method="POST" name="searchForm" class="navbar-form">
 					<div class="form-group">
 						<input type="text" name="search-text" class="form-control" placeholder="Search by Book Title, Author or Genre" size="55">
 						<input type="submit" name="submit" class="btn btn-default" value="Search">
@@ -57,15 +60,16 @@
 					</div><!-- radio -->
 				</form>
 				<div class="search-result">
-					<h5 class="search-result-nav">Page 1 of about 238 results (0.17 seconds)</h5>
+					<h5 class="search-result-nav">Page NOTWORKING of about XXX results (0.17 seconds)</h5>
 					<ul class="list-unstyled search-result-list">
+						@foreach($post as $result)
 						<li>
 							<div class="img-wrapper inline-block">
-								<img alt="" src="https://d2arxad8u2l0g7.cloudfront.net/books/1442970592s/199636.jpg">
+								<img alt="" src="/{{$result->icon}}">
 							</div><!-- img-wrapper -->
 							<div class="book-details inline-block">
-								<a class="bookTitle" href="#">On Agate Hill</a><br>
-								<span class="by">by </span><a class="authorName" href="authorName" href="#">Lee Smith</a>
+								<a class="bookTitle" href="{{url('book/'.$result->id)}}">{{$result->name}}</a><br>
+								<span class="by">by </span><a class="authorName" href="authorName" href="#">{{$result->author}}</a>
 								<br>
 								<span class="greyText smallText inline-block">
 									<span class="p10">*</span>
@@ -83,10 +87,12 @@
 								<span class="star">* * * * *</span>
 							</div>
 						</li>
-						<li>item</li>
-						<li>item</li>
+						@endforeach
 					</ul>
 				</div>
+			
+				
+			
 			</div><!-- col-sm-8 -->
 			<div class="col-sm-3 col-sm-offset-1">
 

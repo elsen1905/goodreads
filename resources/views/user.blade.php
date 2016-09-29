@@ -14,7 +14,7 @@
 			</tr>
 			<tr>
 				<th>Admin(1)/User(0)</th>
-				<td>$user->admin</td>
+				<td>{{$user->admin}}</td>
 			</tr>
 	    	<tr>
 	    		<th>Name</th>
@@ -39,7 +39,7 @@
 	    	<tr>
 	    		<th>Photo</th>
 	    		<td>
-	    			<img height="75" src="/images/{{$user->photo}}" alt="">
+	    			<img height="75" src="/{{$user->photo}}" alt="">
 	    		</td>
 	    	</tr>
 	    	<tr>

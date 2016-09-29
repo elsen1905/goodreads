@@ -16,7 +16,7 @@
 	      <a href="{{url('/')}}"><img src="/images/logo.png"></a>
 	    </div>
 	      <ul class="nav navbar-nav ">
-	        <li><a href="{{url('/homepage')}}">Home</a></li>
+	        <li><a href="{{url('/')}}">Home</a></li>
 	        <li><a href="#">My Books</a></li>
 	      </ul> 
       	<form class="navbar-form navbar-left">
@@ -29,7 +29,7 @@
 		<div class="col-sm-3">
   		<ul class="nav navbar-nav">
 	        <li><a href="#"><img src="/images/friend.svg"></a></li>
-	        <li><a href="{{url('/profile/'.$user->id)}}"><img src="/images/{{Auth::user()
+	        <li><a href="{{url('/profile/'.$user->id)}}"><img src="/{{Auth::user()
 ->photo}}" class="profile"></a></li>
 	      </ul>
      </div>
@@ -40,7 +40,7 @@
 			<div class="col-md-6 col-md-offset-1">
 				<div class="leftSide">
 					<div class="photo col-md-4">
-						<img src="/images/{{$user
+						<img src="/{{$user
 ->photo}}" class="img-responsive">
 						<a href="#">18 ratings</a> 
 						<a href="#">(2.39 avg) </a><br>
@@ -80,19 +80,7 @@
 						<a href="#">comment</a>
 						<a href="#"><img src="/images/x.png" class="img-responsive col-md-1 pullRight"></a>
 						<hr>
-						<p><a href="#" class="black"><b>User User</b></a> is now friends with <a href="#" class="black"><b>Name Surname</b></a></p>
 						
-						<a href="#"><img src="/images/profile2.jpg" class="img-responsive profile2"></a>
-						<a href="#" style="color:gray">Sep 08, 2016 03:21AM | </a> <a href="#">like | </a> 
-						<a href="#">comment</a>
-						<a href="#"><img src="/images/x.png" class="img-responsive col-md-1 pullRight"></a>
-						<hr>
-						<p><a href="#" class="black"><b>User User</b></a> is now friends with <a href="#" class="black"><b>Name Surname</b></a></p>
-						<a href="#"><img src="/images/profile2.jpg" class="img-responsive profile2"></a>
-						<a href="#" style="color:gray">Sep 08, 2016 03:21AM | </a> <a href="#">like | </a> 
-						<a href="#">comment</a>
-						<a href="#"><img src="/images/x.png" class="img-responsive col-md-1 pullRight"></a>
-						<hr>
 						<p><a href="#" class="black"><b>User User</b></a> wants to read</p>
 						<a href="#"><img src="/images/book.jpg" class="img-responsive col-md-2"></a>
 						<div class="about col-md-10">

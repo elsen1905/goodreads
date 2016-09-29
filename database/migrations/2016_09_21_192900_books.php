@@ -13,13 +13,15 @@ class Books extends Migration
     public function up()
     {
         Schema::create('book', function (Blueprint $table) {
-            $table->increments('book_id');
-            $table->string('book_isbn',50);
-            $table->string('book_name',500);
-            $table->string('book_icon',100);
-            $table->string('book_author',500);
-            $table->integer('book_category')->unsigned();
-            $table->string('book_language',100);
+            $table->increments('id');
+            $table->string('isbn',50);
+            $table->string('name',500);
+            $table->string('icon',100);
+            $table->string('author',500);
+            $table->integer('category')->unsigned();
+            $table->string('language',100);
+            $table->string('description', 5000);
+            $table->integer('seen')->unsigned();
             $table->timestamps();
         });
     }

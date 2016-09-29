@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-<nav class="navbar navbar-default" id="navbar">
+<nav class="navbar navbar-default" style="margin-bottom: -10px;" id="navbar">
   <div class="container">
 	<div class="col-sm-9">
 			<div class="navbar-header">
@@ -19,25 +19,27 @@
 	        <li><a href="{{url('/')}}">Home</a></li>
 	        <li><a href="#">My Books</a></li>
 	      </ul> 
-      	<form class="navbar-form navbar-left">
+      	<form class="navbar-form navbar-left" action="{{url('/search-result')}}" method="POST" >
+      	{{csrf_field()}}
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search books">
+	          <input type="text" class="form-control" name="search" placeholder="Search books">
 	        </div>
-	        <a href="{{url('/search-result')}}" class="btn"> 
+	       {{--  <a href="{{url('/search-result')}}" class="btn"> 
 	        	<i class="fa fa-search" aria-hidden="true"></i>
-	        </a>
+	        </a> --}}
+	        <button type="submit" class="btn btn-default" style="background-color: #F4F1EA">Search</button>
      	</form>
 		</div>
 		<div class="col-sm-3">
   		<ul class="nav navbar-nav">
 	        <li><a href="#"><img src="/images/friend.svg"></a></li>
-	        <li><a href="{{url('/profile/'.Auth::user()->id)}}"><img src="/images/{{Auth::user()->photo}}" class="profile"></a></li>
-	        <li><a href="{{url('/logout')}}" class="btn btn-warning">Log out</a></li>
+	        <li><a href="{{url('/profile/'.Auth::user()->id)}}"><img src="/{{Auth::user()->photo}}" class="profile"></a></li>
+	        <li><a href="{{url('/logout')}}" class="btn btn-default" style="margin-top: 10px;background-color: #F4F1EA; ">Log out</a></li>
 	      </ul>
      </div>
   </div>   
 </nav>
-	<section id="homepage">
+	<section id="homepage" style="background-color: #F9F8F4;">
 		<div class="container-fluid">
 			<div class="container">
 				<div class="col-md-3 home-left">
@@ -72,6 +74,7 @@
 						</div>
 						</div>
 					</div>
+
 					<div class="row challenge">
 						<div class="col-md-12">
 							<div class="row">
@@ -190,51 +193,67 @@
 							</div>
 						</div>
 					</div>
-					<div class="row homepage-news">
+					@foreach($lastbook as $any)
+					<div class="row homepage-news" style="margin-top: 20px">
 						<div class="row">
 							<div class="col-md-1">
 								<div class="logo">
 									<a href="#">
-										<img src="/images/logo.svg" height="42px" alt="">
+										<img src="/{{$any->icon}}" height="42" width="42" alt="">
 									</a>
 								</div>
 							</div>
 							<div class="col-md-10">
-								<p>Trending this week in one of your favorite genres, <a href="#">Mystery</a></p>
+								<p>Trending this week in one of your favorite genres, <a href="#">{{$any->category}}</a></p>
 							</div>
 							<div class="col-md-1">
-								<a href="#">22h</a>
+								@if($current->diffInSeconds($any->created_at) < 60)
+								<a href="#">{{$current->diffInSeconds($any->created_at)}}sec</a>
+								@elseif($current->diffInHours($any->created_at) < 1)
+								<a href="#">{{$current->diffInMinutes($any->created_at)}}min</a>
+								@elseif($current->diffInHours($any->created_at) <= 24)
+								<a href="#">{{$current->diffInHours($any->created_at)}}h</a> 
+								@elseif($current->diffInHours($any->created_at) > 24)
+								<a href="#">{{$current->diffInDays($any->created_at)}}d</a>
+								@elseif($current->diffInDays($any->created_at) > 7)
+								<a href="#">{{$current->diffInWeeks($any->created_at)}}w</a>
+								@elseif($current->diffInMonths($any->created_at) >= 1)
+								<a href="#">{{$current->diffInMonths($any->created_at)}}m</a>
+								@elseif($current->diffInYears($any->created_at) >= 1)
+								<a href="#">{{$current->diffInYears($any->created_at)}}y</a>
+								@endif
 							</div>
 						</div>
-						<div class="row homepage-book-review">
-							<div class="col-md-3">
-								<img src="/images/samplebook.jpg" alt="">
+							<div class="row homepage-book-review">
+								<div class="col-md-3">
+									<img height="178" width="120" src="/{{$any->icon}}" alt="">
+								</div>
+								<div class="col-md-9">
+									<div class="row">
+										<a href="#" class="f-a">{{$any->name}}</a>
+									</div>
+									<div class="row author">
+										<span>by</span><a href="#"> {{$any->author}}</a>
+									</div>
+									<div class="row">
+										<form action="">
+											<input type="submit"  value="Want to Read">
+										</form>
+									</div>
+									<div class="row">
+										<h5>{{substr($any->description, 0, 100)}}...</h5>
+									</div>
+								</div>
 							</div>
-							<div class="col-md-9">
-								<div class="row">
-									<a href="#" class="f-a">Justice Redeemed</a>
-								</div>
-								<div class="row author">
-									<span>by</span><a href="#"> Scott Pratt</a>
-								</div>
-								<div class="row">
-									<form action="">
-										<input type="submit" value="Want to Read">
-									</form>
-								</div>
-								<div class="row">
-									<h5>Two years ago, Darren Street made a name for himself as the man who rooted out corruption in the district attorney's office. Now the hotheaded young lawyer is in the public e...</h5>
-								</div>
-							</div>
-						</div>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="col-md-4 col-md-offset-3">
-									<a href="#">Continue reading</a>
+									<a href="{{url('book/'.$any->id)}}">Continue reading</a>
 								</div>
 							</div>
 						</div>
 					</div>
+					@endforeach
 				</div>
 				<div class="col-md-3 home-right">
 					<div class="row recommendations">
@@ -258,18 +277,18 @@
 					</div>
 					<div class="row featured">
 						<div class="col-md-12">
-							<div class="row">
-								<p>FEATURED GROUP</p>
-							</div>
-							<div class="row">
-								<a href="#">Oprah's September Book Announced</a>
-							</div>
-							<div class="row">
-								<img src="/images/commerical.jpg" width="285px" alt="">
-							</div>
-							<div class="row">
-								<span>19,691 members - Last active an hour ago</span>
-							</div>
+							<div class="row">Most searched books</div>
+							@foreach($mostread as $mostreadbooks)
+								<div class="row">
+									<div class="col-md-4">
+										<img height="70" src="/{{$mostreadbooks->icon}}" alt="">
+									</div>
+									<div class="col-md-8">
+										<a href="{{url('book/'.$mostreadbooks->id)}}">{{$mostreadbooks->name}}</a>
+										<span>Views</span>{{$mostreadbooks->seen}}
+									</div>
+								</div>
+							@endforeach
 						</div>
 					</div>
 					<div class="row contact-us">

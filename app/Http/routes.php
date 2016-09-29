@@ -12,25 +12,22 @@
 */
 
 Route::group(['middleware' => ['web']], function(){
-
-	Route::get('/index', function () {
-	    return view('welcome');
-	});
-
 	Route::get('/', function(){
-		return view('main');
+		return view('welcome');
 	});
+
+	Route::get('/', 'PageController@homepage');	
 	// Route::get('/', function(){
 	// 	return view('index');
 	// });
 	// Route::get('/homepage','PageController@homepage');
 	Route::get('/profile/{id}/settings', 'PageController@settings');
-
+	Route::patch('/profile/{id}','PageController@profile_update');
 	Route::get('/profile/{id}', 'PageController@profile');
-
-
-	Route::get('/search-result', 'PageController@search');
-
+	Route::post('profile/upload-a-picture/{id}', 'PageController@upload_picture');
+	Route::get('book/{id}', 'PageController@show_book');
+	Route::post('/search-result', 'PageController@search');
+	// Route::get('/admin/user/{id}', 'HomeController@delete');
 
 	Route::get('/test', 'PageController@user_take');
 
@@ -40,8 +37,20 @@ Route::group(['middleware' => ['web']], function(){
 
 	// Route::get('/admin/create', 'HomeController@create');
 	// Route::post('/admin/create', 'HomeController@insert');
+	Route::get('/admin/user/{id}/update', 'HomeController@update');
 
-	Route::get('/admin/{id}','HomeController@user_info');
+	Route::patch('/admin/{id}', 'HomeController@edit');
+	Route::get('/admin/delete/{id}', 'HomeController@delete');
+	Route::get('/admin/user/{id}','HomeController@user_info');
+
+	Route::get('admin/actions', 'HomeController@actions');
+
+	Route::get('admin/books', 'HomeController@book');
+	Route::get('admin/books/create-new-book', 'HomeController@book_create');
+	Route::get('admin/books/actions', 'HomeController@book_actions');
+	Route::get('admin/books/delete/{id}', 'HomeController@book_delete');
+	Route::post('admin/books/create-new-book', 'HomeController@create_new_book');
+	Route::get('admin/books/update/{id}', 'HomeController@update_book');
+	Route::post('admin/books/update/{id}', 'HomeController@edit_book');
 });
-
 

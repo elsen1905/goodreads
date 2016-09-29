@@ -6148,7 +6148,8 @@ body {
         margin-left: -56px;
         margin-top: -8px; }
         #homepage .home-center .homepage-news .logo img {
-          border-radius: 50%; }
+          border-radius: 50%;
+          background-position: center; }
       #homepage .home-center .homepage-news .col-md-10 p {
         margin-top: 2px;
         margin-left: -40px;
@@ -6526,5 +6527,19 @@ body {
   #footer a {
     color: #00635D;
     font-size: 11px; }
+
+#show_book {
+  padding-top: 25px;
+  font-family: times; }
+  #show_book .book_name {
+    padding-bottom: 15px; }
+    #show_book .book_name p {
+      color: #333333;
+      font-size: 26px;
+      font-weight: 700; }
+    #show_book .book_name a {
+      color: #333333; }
+  #show_book .book_description p {
+    font-size: 16px; }
 
 /*# sourceMappingURL=app.css.map */

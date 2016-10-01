@@ -18,6 +18,7 @@ class Books extends Migration
             $table->string('name',500);
             $table->string('icon',100);
             $table->string('author',500);
+            $table->integer('author_id')->unsigned();
             $table->integer('category')->unsigned();
             $table->string('language',100);
             $table->string('description', 5000);

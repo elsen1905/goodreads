@@ -12,9 +12,9 @@
 */
 
 Route::group(['middleware' => ['web']], function(){
-	Route::get('/', function(){
-		return view('welcome');
-	});
+	// Route::get('/', function(){
+	// 	return view('welcome');
+	// });
 
 	Route::get('/', 'PageController@homepage');	
 	// Route::get('/', function(){
@@ -52,5 +52,9 @@ Route::group(['middleware' => ['web']], function(){
 	Route::post('admin/books/create-new-book', 'HomeController@create_new_book');
 	Route::get('admin/books/update/{id}', 'HomeController@update_book');
 	Route::post('admin/books/update/{id}', 'HomeController@edit_book');
+
+
+	Route::get('admin/authors', 'HomeController@authors');
+	Route::get('author/{id}', 'PageController@view_author');
 });
 

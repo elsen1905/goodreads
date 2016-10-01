@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Goodreads | {{$book->name}}</title>
+	<title>Goodreads | {{$author->author_name}}</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="icon" href="/images/goodreads-icon.png">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-	<nav class="navbar navbar-default" style="margin-bottom: -10px;" id="navbar">
+	<nav class="navbar navbar-default" style="margin-bottom: 0px;" id="navbar">
 	  <div class="container">
 		<div class="col-sm-9">
 				<div class="navbar-header">
@@ -38,48 +38,20 @@
 	     </div>
 	  </div>   
 	</nav>
-	<section id="show_book">
+	<section>
 		<div class="container">
 			<div class="col-md-12">
-				<div class="col-md-8">
-					<div class="col-md-12">
-						<div class="col-md-4">
-							<img height="220" width="150" src="/{{$book->icon}}" alt="">
-						</div>
-						<div class="col-md-8">
-							<div class="row book_name">
-								<p class="">{{$book->name}}</p>
-								<span>by</span> <a href="{{url('author/'.$book->author_id)}}">{{$book->author}}</a>
-							</div>
-							<div class="row book_description">
-								<p>{{$book->description}}</p>
-							</div>
-							<hr>
-							<div class="row info_table">
-								<table>
-									<tr>
-										<td>Orginal Title</td>
-										<td>{{$book->name}}</td>
-									</tr>
-									<tr>
-										<td>ISBN</td>
-										<td>{{$book->isbn}}</td>
-									</tr>
-									<tr>
-										<td>Edition Language</td>
-										<td>{{$book->language}}</td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					</div>
+				<div class="col-md-3">
+					<img src="{{$author->author_photo}}" height="200" alt="">
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-9">
 					<div class="page-header">
-						<h4>About {{$book->author}}</h4>
+						<h3>{{$author->author_name}}</h3>
 					</div>
 					<div class="row">
-						Authors information will be located in there 
+						<h5>
+							{{$author->author_biography}}
+						</h5>
 					</div>
 				</div>
 			</div>

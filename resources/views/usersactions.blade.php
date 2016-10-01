@@ -245,7 +245,7 @@
                         <a href="{{url('admin/books')}}"><i class="fa fa-book" aria-hidden="true"></i>Books</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-bookmark" aria-hidden="true"></i>Books' Actions</a>
+                        <a href="{{url('admin/books/actions')}}"><i class="fa fa-bookmark" aria-hidden="true"></i>Books' Actions</a>
                     </li>
                     
                     <li>

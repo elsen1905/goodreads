@@ -30,20 +30,20 @@
 	        <button type="submit" class="btn btn-default" style="background-color: #F4F1EA">Search</button>
      	</form>
 		</div>
-		<div class="col-sm-3">
-  		<ul class="nav navbar-nav">
-	        <li><a href="#"><img src="/images/friend.svg"></a></li>
-	        <li><a href="{{url('/profile/'.Auth::user()->id)}}"><img src="/{{Auth::user()->photo}}" class="profile"></a></li>
-	        <li><a href="{{url('/logout')}}" class="btn btn-default" style="margin-top: 10px;background-color: #F4F1EA; ">Log out</a></li>
-	      </ul>
-     </div>
+		<div class="col-sm-3 top-nav">
+	  		<ul class="nav navbar-nav">
+		        <li><a href="#"><img src="/images/friend.svg"></a></li>
+		        <li><a href="{{url('/profile/'.Auth::user()->id)}}"><img src="/{{Auth::user()->photo}}" class="profile"></a></li>
+		        <li><a href="{{url('/logout')}}" class="btn btn-default" style="margin-top: 10px;background-color: #F4F1EA; ">Log out</a></li>
+		    </ul>
+     	</div>
   </div>   
 </nav>
 	<section id="homepage" style="background-color: #F9F8F4;">
 		<div class="container-fluid">
 			<div class="container">
 				<div class="col-md-3 home-left">
-					<div class="row current-read">
+					{{-- <div class="row current-read">
 						<div class="col-md-12">
 							<div class="row">
 							<p>CURRENTLY READING</p>
@@ -159,7 +159,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 				<div class="col-md-6 home-center">
 					<div class="row welcome">
@@ -198,7 +198,7 @@
 						<div class="row">
 							<div class="col-md-1">
 								<div class="logo">
-									<a href="#">
+									<a href="{{url('/book'.$any->id)}}">
 										<img src="/{{$any->icon}}" height="42" width="42" alt="">
 									</a>
 								</div>
@@ -208,11 +208,11 @@
 							</div>
 							<div class="col-md-1">
 								@if($current->diffInSeconds($any->created_at) < 60)
-								<a href="#">{{$current->diffInSeconds($any->created_at)}}sec</a>
+								<a href="#">{{$current->diffInSeconds($any->created_at)}}san</a>
 								@elseif($current->diffInHours($any->created_at) < 1)
-								<a href="#">{{$current->diffInMinutes($any->created_at)}}min</a>
+								<a href="#">{{$current->diffInMinutes($any->created_at)}}deq</a>
 								@elseif($current->diffInHours($any->created_at) <= 24)
-								<a href="#">{{$current->diffInHours($any->created_at)}}h</a> 
+								<a href="#">{{$current->diffInHours($any->created_at)}}saat</a> 
 								@elseif($current->diffInHours($any->created_at) > 24)
 								<a href="#">{{$current->diffInDays($any->created_at)}}d</a>
 								@elseif($current->diffInDays($any->created_at) > 7)
@@ -230,10 +230,10 @@
 								</div>
 								<div class="col-md-9">
 									<div class="row">
-										<a href="#" class="f-a">{{$any->name}}</a>
+										<a href="{{url('/book/'.$any->id)}}" class="f-a">{{$any->name}}</a>
 									</div>
 									<div class="row author">
-										<span>by</span><a href="#"> {{$any->author}}</a>
+										<span>by</span><a href="{{url('author/'.$any->author_id)}}"> {{$any->author}}</a>
 									</div>
 									<div class="row">
 										<form action="">
@@ -258,7 +258,7 @@
 				<div class="col-md-3 home-right">
 					<div class="row recommendations">
 						<div class="col-md-12">
-							<div class="row">
+							{{-- <div class="row">
 								<p>IMPROVE RECOMMENDATIONS</p>
 							</div>
 							<div class="row">
@@ -272,7 +272,7 @@
 							</div>
 							<div class="row">
 								<a href="#">Read more books</a>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 					<div class="row featured">

@@ -42,10 +42,10 @@
 					<div class="photo col-md-4">
 						<img src="/{{$user
 ->photo}}" class="img-responsive">
-						<a href="#">18 ratings</a> 
+						{{-- <a href="#">18 ratings</a> 
 						<a href="#">(2.39 avg) </a><br>
 						<a href="#">0 reviews</a><br>
-						<a href="#">more photos (0)</a>
+						<a href="#">more photos (0)</a> --}}
 					</div>
 					<div class="info col-md-8">
 						<h1> {{$user
@@ -59,7 +59,7 @@
 						<label>Birthday</label><p>{{$user->born}}</p>
 						<label>Activity</label><p>Joined in {{$user->created_at}}</p>
 					</div>
-					<div class="col-md-12 bookshelves">
+					{{-- <div class="col-md-12 bookshelves">
 						<h5><b>USER'S BOOKSHELVES</b></h5>
 						<hr>
 						<a href="#">read (17)</a>
@@ -70,8 +70,8 @@
 							<a href="#">Stats | </a>
 						<a href="#">More...</a>
 						</div>	
-					</div>
-					<div class="col-md-12 updates">
+					</div> --}}
+					{{-- <div class="col-md-12 updates">
 						<h5><b>USER'S RECENT UPDATES</b></h5>
 						<hr>
 						<p><a href="#" class="black"><b>User User</b></a> is now friends with <a href="#" class="black"><b>Name Surname</b></a></p>						
@@ -110,8 +110,8 @@
 						<a href="#" style="color:gray">Sep 08, 2016 03:21AM | </a> <a href="#">like | </a> 
 						<a href="#">comment</a>
 						<a href="#"><img src="/images/x.png" class="img-responsive col-md-1 pullRight"></a>
-					</div>
-					<div class="quotes col-md-12">
+					</div> --}}
+					{{-- <div class="quotes col-md-12">
 						<h5><b><a href="#">USER'S QUOTES</a></b><a href="#" style="color:gray">(edit)</a></h5><hr>
 						<p>User hasn't added any quotes yet. <a href="#">  Add quotes now>></a></p>
 					</div>
@@ -122,14 +122,14 @@
 						<textarea name = "comment" placeholder = "Comment"></textarea>
 						<input type="submit" name="send" value="SEND" class="btn btn-success pullRight">
 						</form>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="rightSide">
-					<h5><b><a href="#">USER'S FRIENDS (100)</a></b></h5>
-						<hr>
-						<div class="friends col-md-12">
+					{{-- <h5><b><a href="#">USER'S FRIENDS (100)</a></b></h5>
+						<hr> --}}
+						{{-- <div class="friends col-md-12">
 							<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-3"></a>
 							<a href="#">Name Surname</a>
 							<p>0 books | 18 friends</p>
@@ -153,24 +153,24 @@
 							<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-3"></a>
 							<a href="#">Name Surname</a>
 							<p>0 books | 18 friends</p>
-						</div>
-						<a href="#" class="pullRight">More firends...</a>
-				<div class="clear"></div>
+						</div> --}}
+						{{-- <a href="#" class="pullRight">More firends...</a>
+				<div class="clear"></div> --}}
 				<div class="follow col-md-12">
-					<h6><b><a href="#">PEOPLE USER IS FOLLOWING</a></b></h6>
+					{{-- <h6><b><a href="#">PEOPLE USER IS FOLLOWING</a></b></h6>
 						<hr>
 						<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-2"></a>
 						<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-2"></a>
 						<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-2"></a>
 						<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-2"></a>
-						<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-2"></a>
+						<a href="#"><img src="/images/profile3.png" class="img-responsive col-md-2"></a> --}}
 					</div>
-					<div class="clear"></div>
+					{{-- <div class="clear"></div>
 					<div class="genres col-md-12">
 						<h6><b>FAVORITE GENRES</b></h6><hr>
 						<p><a href="#">Biography</a>, <a href="#">Children's</a>, <a href="#">Historical fictions</a> and <a href="#">Science fictions</a></p>
-					</div>
-					<div class="clear"></div>
+					</div> --}}
+					{{-- <div class="clear"></div>
 					<div class="readingChallenge col-md-12">
 						<h6><b><a href="#">2016 READING CHALLENGE</a></b></h6>
 						<hr>
@@ -180,16 +180,61 @@
 							<p>0%</p>
 						</div>
 						<button class="btn btn-default">View Books</button>
-					</div>				
-						<a href="#">Polls voted on by User</a><br>
-						<a href="#">List liked by User</a>	
+					</div>		 --}}		
+					{{-- <a href="#">Polls voted on by User</a><br>
+					<a href="#">List liked by User</a> --}}	
 				</div>
 			</div>
 		</div>	
 	</div>
-	<footer id="footer" class="col-md-12">
-		<p class="col-md-3">2016 Goodreads Inc</p>
-		<p><a href="#">about us</a> | <a href="#">advertise</a> | <a href="#">authior program</a> | <a href="#">job</a> | <a href="#">api</a> | <a href="#">our blog</a> | <a href="#">author & advirtiser blog </a> | <a href="#">temrs </a> | <a href="#">privacy</a> | <a href="#">help</a></p>
-	</footer>
+	<section id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-2">
+						<span class="span-l">&copy 2016 Goodreads Inc</span>
+					</div>
+					<div class="col-md-8">
+						<ul>
+							<li>
+								<a href="#">about us</a>
+							</li>
+							<li>
+								<a href="#">advertise</a>
+							</li>
+							<li>
+								<a href="#">author program</a>
+							</li>
+							<li>
+								<a href="#">jobs</a>
+							</li>
+							<li>
+								<a href="#">api</a>
+							</li>
+							<li>
+								<a href="#">our blog</a>
+							</li>
+							<li>
+								<a href="#">authors & advertisers blog</a>
+							</li>
+							<li>
+								<a href="#">terms</a>
+							</li>
+							<li>
+								<a href="#">privacy</a>
+							</li>
+							<li>
+								<a href="#">help</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-2">
+						<span>switch to:</span>
+						<a href="#">mobile version</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

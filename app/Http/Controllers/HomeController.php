@@ -7,7 +7,8 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
-use App\Book;   
+use App\Book; 
+use App\Author;
 use Auth;
 class HomeController extends Controller
 {
@@ -128,5 +129,10 @@ class HomeController extends Controller
         ]);
         $book->save();
         return redirect('admin/books/actions');
+    }
+
+    public function authors(){
+        $author = Author::all();
+        return view('author', compact('author'));
     }
 }

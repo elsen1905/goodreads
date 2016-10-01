@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\User;
 use App\Book;
+use App\Author;
 use Carbon\Carbon;
 use Auth;
 
@@ -34,7 +35,7 @@ class PageController extends Controller
     }
     public function search(Request $request){
         $any = $request->search;
-        $post = Book::where('name', 'LIKE', '%'.$request->search.'%')->get();
+        $post = Book::where('name', 'LIKE', '%'.$request->search.'%')->orWhere('author', 'LIKE', '%'.$request->search.'%')->get();
     	return view('search', compact('post', 'any'));
     }
 
@@ -71,5 +72,9 @@ class PageController extends Controller
         $user->photo = $fileName;
         $user->save();
         return back();
+    }
+    public function view_author($id){
+        $author = Author::find($id);
+        return view('viewauthor', compact('author'));
     }
 }

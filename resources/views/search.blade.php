@@ -44,7 +44,7 @@
 						<input type="text" name="search-text" class="form-control" placeholder="Search by Book Title, Author or Genre" size="55">
 						<input type="submit" name="submit" class="btn btn-default" value="Search">
 					</div><!-- form-group -->
-					<div class="radio">
+					{{-- <div class="radio">
 						<label class="radio-inline">
 							<input type="radio" name="searchOption" id="search_all" value="all" checked="checked"> all
 						</label>
@@ -57,10 +57,11 @@
 						<label class="radio-inline">
 							<input type="radio" name="searchOption" id="search_by_genre" value="genre"> genre
 						</label>
-					</div><!-- radio -->
+					</div><!-- radio --> --}}
 				</form>
+
 				<div class="search-result">
-					<h5 class="search-result-nav">Page NOTWORKING of about XXX results (0.17 seconds)</h5>
+{{-- 					<h5 class="search-result-nav">Page NOTWORKING of about XXX results (0.17 seconds)</h5> --}}
 					<ul class="list-unstyled search-result-list">
 						@foreach($post as $result)
 						<li>
@@ -69,9 +70,9 @@
 							</div><!-- img-wrapper -->
 							<div class="book-details inline-block">
 								<a class="bookTitle" href="{{url('book/'.$result->id)}}">{{$result->name}}</a><br>
-								<span class="by">by </span><a class="authorName" href="authorName" href="#">{{$result->author}}</a>
+								<span class="by">by </span><a class="authorName" href="{{url('author/'.$result->author_id)}}" href="#">{{$result->author}}</a>
 								<br>
-								<span class="greyText smallText inline-block">
+								{{-- <span class="greyText smallText inline-block">
 									<span class="p10">*</span>
 									<span class="p10">*</span>
 									<span class="p10">*</span>
@@ -79,13 +80,13 @@
 									<span class="p0">* </span>
 									3.76 avg rating - 3,082 ratings - published 2006 -
 									<a class="greyText" href="#">15 editions</a>
-								</span>
+								</span> --}}
 							</div><!-- book-details -->
-							<div class="readButton inline-block pull-right">
+							{{-- <div class="readButton inline-block pull-right">
 								<button type="button" class="btn btn-success">Want to Read</button>
 								<br>
 								<span class="star">* * * * *</span>
-							</div>
+							</div> --}}
 						</li>
 						@endforeach
 					</ul>
@@ -95,7 +96,7 @@
 			
 			</div><!-- col-sm-8 -->
 			<div class="col-sm-3 col-sm-offset-1">
-
+				
 			</div><!-- col-sm-3 col-sm-offset-1 -->
 		</div><!-- row -->
 	</div><!-- container -->

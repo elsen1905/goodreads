@@ -7,15 +7,17 @@
 		height: 30px;
 		width: 30px;
 	}
-	ul{	
+	.top-nav{
+		ul{	
 		margin-top: 0;
 		padding: 0;
 		list-style-type: none;
 	
-	li{
-		margin-top: 0;
-		padding: 0;
-		float: left;
-		}
+			li{
+				margin-top: 0;
+				padding: 0;
+				float: left;
+				}
+			}
 	}
 }

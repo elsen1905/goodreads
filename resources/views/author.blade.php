@@ -237,7 +237,7 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-users" aria-hidden="true"></i>Users</a>
+                        <a  href="index.html"><i class="fa fa-users" aria-hidden="true"></i>Users</a>
                     </li>
                     <li>
                         <a href="{{url('admin/actions')}}"><i class="fa fa-user-plus" aria-hidden="true"></i>Users' Actions</a>
@@ -250,14 +250,14 @@
                     </li>
                     
                     <li>
-                        <a href="{{url('admin/authors')}}"><i class="fa fa-table"></i> Authors</a>
+                        <a class="active-menu" href="table.html"><i class="fa fa-table"></i> Authors</a>
                     </li>
                     <li>
                         <a href="form.html"><i class="fa fa-edit"></i> Authors Actions </a>
                     </li>
 
 
-                    <li>
+                    {{-- <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -286,7 +286,7 @@
                     </li>
                     <li>
                         <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
+                    </li> --}}
                 </ul>
 
             </div>
@@ -310,11 +310,11 @@
 						<table class="table table-hover">
 				    		<thead>
 						    	<tr>
-							        <th>Id</th>
-							        <th>Role(Admin(1)/User(0))</th>
+							        <th>ID</th>
 							        <th>Name</th>
-							        <th>Surname</th>
-							        <th>Email</th>
+							        <th>Photo</th>
+							        <th>Bio</th>
+							        <th>Books</th>
 							        {{-- <th>Password</th>
 							        <th>Read Books</th> --}}
 							        {{-- <th>Profile pic</th> --}}
@@ -325,25 +325,34 @@
 				    		</thead>
 				    		<tbody>
 							  	
-							@foreach($user as $users)
-								<tr>
-									
-									<td>{{$users->id}}</td>
-									<td>{{$users->admin}}</td>
-									<td>{{$users->name}}</td>
-									<td>{{$users->surname}}</td>
-									<td>{{$users->email}}</td>
-									{{-- <td>{{$users->password}}</td>
-									<td>{{$users->read}}</td> --}}
-									{{-- <td><img height="50" src="/images/{{$users->photo}}"></td> --}}
-									<td>{{$users->updated_at}}</td>
-									{{-- <td>{{$users->created_at}}</td> --}}
-									<td><a href="{{url('admin/user/'.$users->id)}}" class="btn btn-default">More Info</a></td>
-
-								</tr>	
-							@endforeach
+                                @foreach($author as $authors)
+                                    <tr>
+                                        <th>
+                                            {{$authors->author_id}}
+                                        </th>
+                                        <th>
+                                            {{$authors->author_name}}
+                                        </th>
+                                        <th>
+                                            <img src="{{$authors->author_photo}}" height="75" alt="">
+                                        </th>
+                                        <th>
+                                            {{$authors->author_biography}}
+                                        </th>
+                                        <th>
+                                            {{$authors->author_books}}
+                                        </th>
+                                        <th>
+                                            {{$authors->updated_at}}
+                                        </th>
+                                        <th>
+                                            {{$authors->created_at}}
+                                        </th>
+                                    </tr>
+                                @endforeach
+							     
 				  			</tbody>
-				  			{{-- <a href="{{url('/admin/create')}}" class="btn btn-success">Create New User</a> --}}
+				  			
 				 		</table>
 					</div>
 				</div>
@@ -355,7 +364,7 @@
 
                 
                 <!-- /. ROW  -->
-				{{-- <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer> --}}
+				
             </div>
             <!-- /. PAGE INNER  -->
         </div>

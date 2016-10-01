@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Goodreads | Recent Updates</title>
 </head>
 <body>
 	@if (Auth::guest())

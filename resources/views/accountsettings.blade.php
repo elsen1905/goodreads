@@ -97,17 +97,17 @@
 					 {{ csrf_field() }}
 						<div class="row">
 							<p class="paragraph">First Name</p>
-							<input type="text" name="name" class="input-border" placeholder="{{$user->name}}">
+							<input type="text" name="name" class="input-border" value="{{$user->name}}">
 						</div>
 						<div class="row">
 							<p class="paragraph">Last Name</p>
-							<input type="text" name="surname" class="input-border" placeholder="{{$user->surname}}">
+							<input type="text" name="surname" class="input-border" value="{{$user->surname}}">
 						</div>
 						<div class="row">
 							<p class="paragraph">Email</p>
 							<input type="text" name="email" class="input-border" value="{{$user->email}}">
 						</div>
-						<div class="row">
+						{{-- <div class="row">
 							<p class="paragraph">Middle Name</p>
 							<input type="text" class="input-border" disabled="true">
 						</div>
@@ -194,7 +194,7 @@
 						<div class="row">
 							<p class="paragraph">About Us <a href="#">(tips)</a></p>
 							<textarea class="input-textarea" name="" disabled="" id="" cols="75" rows="10"></textarea>
-						</div>
+						</div> --}}
 						<div class="row">
 							<input type="submit" class="btn" value="Save Profile Settings">
 						</div>
